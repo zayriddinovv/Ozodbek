@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // Загружаем переменные окружения
 dotenv.config();
@@ -26,6 +27,7 @@ mongoose.connect(process.env.MONGODB_URI, {
   .catch(err => console.error('Ошибка подключения к MongoDB:', err));
 
 // Маршруты
+app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/auth', authRoutes);
 app.use('/api/contact', contactRoutes);
 

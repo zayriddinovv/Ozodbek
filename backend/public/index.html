@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html
+  lang="ru"
+  class="dark"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <title>DeviceRepair Pro - Профессиональный ремонт устройств</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+<body>
+<!-- Header -->
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <i class="fas fa-mobile-alt"></i>
+      DeviceRepair Pro
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a
+          href="#"
+          onclick="showPage('home')"
+          class="active"
+        >Главная
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          onclick="showPage('services')"
+        >Услуги
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          onclick="showPage('contact')"
+        >Связаться
+        </a>
+      </li>
+    </ul>
+    <div class="auth-buttons">
+      <button
+        class="btn btn-ghost"
+        onclick="showModal('loginModal')"
+        id="loginBtn"
+      >
+        <i class="fas fa-sign-in-alt"></i>
+        Войти
+      </button>
+      <button
+        class="btn btn-primary"
+        onclick="showModal('registerModal')"
+        id="registerBtn"
+      >
+        <i class="fas fa-user-plus"></i>
+        Регистрация
+      </button>
+      <div
+        class="hidden"
+        id="userMenu"
+      >
+        <button
+          class="btn btn-ghost"
+          onclick="showPage('dashboard')"
+        >
+          <i class="fas fa-tachometer-alt"></i>
+          Панель
+        </button>
+        <button
+          class="btn btn-outline"
+          onclick="logout()"
+        >
+          <i class="fas fa-sign-out-alt"></i>
+          Выйти
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Home Page -->
+<div
+  id="homePage"
+  class="page active"
+>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Профессиональный ремонт устройств</h1>
+      <p>Быстро, качественно, с гарантией. Ремонтируем смартфоны, планшеты, ноутбуки и другие устройства с использованием оригинальных комплектующих.</p>
+      <div class="hero-buttons">
+        <button
+          class="btn btn-primary"
+          onclick="showPage('contact')"
+        >
+          <i class="fas fa-tools"></i>
+          Заказать ремонт
+        </button>
+        <button
+          class="btn btn-outline"
+          onclick="showPage('services')"
+        >
+          <i class="fas fa-list"></i>
+          Наши услуги
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <h2>Почему выбирают нас</h2>
+    <div class="features-grid">
+      <div class="card feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Быстрый ремонт</h3>
+        <p>Большинство ремонтов выполняем в течение 24 часов. Экспресс-ремонт за 2-4 часа.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Гарантия качества</h3>
+        <p>Предоставляем гарантию до 6 месяцев на все виды ремонта и замененные детали.</p>
+      </div>
+      <div class="card feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h3>Сертифицированные мастера</h3>
+        <p>Наши специалисты имеют многолетний опыт и постоянно повышают квалификацию.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Services Page -->
+<div
+  id="servicesPage"
+  class="page"
+>
+  <div style="padding: 6rem 2rem 2rem; max-width: 1200px; margin: 0 auto;">
+    <h1 style="text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">Наши услуги</h1>
+    <div class="features-grid">
+      <div class="card">
+        <div class="feature-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3>Ремонт смартфонов</h3>
+        <p>Замена экранов, батарей, камер, динамиков. Ремонт материнских плат и восстановление после воды.</p>
+        <ul style="margin-top: 1rem; color: var(--text-secondary);">
+          <li>Замена дисплея - от 2000₽</li>
+          <li>Замена батареи - от 1500₽</li>
+          <li>Ремонт после воды - от 3000₽</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="feature-icon">
+          <i class="fas fa-tablet-alt"></i>
+        </div>
+        <h3>Ремонт планшетов</h3>
+        <p>Замена тачскринов, LCD матриц, разъемов зарядки. Восстановление системы и прошивка.</p>
+        <ul style="margin-top: 1rem; color: var(--text-secondary);">
+          <li>Замена тачскрина - от 2500₽</li>
+          <li>Замена разъема - от 1800₽</li>
+          <li>Восстановление ПО - от 2000₽</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="feature-icon">
+          <i class="fas fa-laptop"></i>
+        </div>
+        <h3>Ремонт ноутбуков</h3>
+        <p>Замена клавиатур, экранов, кулеров. Чистка от пыли, замена термопасты, ремонт материнских плат.</p>
+        <ul style="margin-top: 1rem; color: var(--text-secondary);">
+          <li>Замена экрана - от 5000₽</li>
+          <li>Чистка и замена термопасты - от 2500₽</li>
+          <li>Замена клавиатуры - от 3000₽</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="feature-icon">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Ремонт умных часов</h3>
+        <p>Замена экранов, батарей, ремешков. Восстановление водозащиты и калибровка сенсоров.</p>
+        <ul style="margin-top: 1rem; color: var(--text-secondary);">
+          <li>Замена экрана - от 3000₽</li>
+          <li>Замена батареи - от 2000₽</li>
+          <li>Восстановление защиты - от 2500₽</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div
+  id="contactPage"
+  class="page"
+>
+  <div
+    class="form-container"
+    style="max-width: 600px; margin-top: 4rem;"
+  >
+    <h1 style="text-align: center; margin-bottom: 2rem;">Заказать ремонт</h1>
+    <div class="card">
+      <form id="contactForm">
+        <div
+          id="contactAlert"
+          class="alert"
+        ></div>
+
+        <div class="form-group">
+          <label class="form-label">Ваше имя *</label>
+          <input
+            type="text"
+            class="form-input"
+            name="name"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email *</label>
+          <input
+            type="email"
+            class="form-input"
+            name="email"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Телефон *</label>
+          <input
+            type="tel"
+            class="form-input"
+            name="phone"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Тип устройства *</label>
+          <select
+            class="form-select"
+            name="deviceType"
+            required
+          >
+            <option value="">Выберите тип устройства</option>
+            <option value="smartphone">Смартфон</option>
+            <option value="tablet">Планшет</option>
+            <option value="laptop">Ноутбук</option>
+            <option value="smartwatch">Умные часы</option>
+            <option value="other">Другое</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Модель устройства *</label>
+          <input
+            type="text"
+            class="form-input"
+            name="deviceModel"
+            placeholder="Например: iPhone 14 Pro, Samsung Galaxy S23"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Описание проблемы *</label>
+          <textarea
+            class="form-textarea"
+            name="problemDescription"
+            placeholder="Опишите подробно, что случилось с устройством..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Срочность</label>
+          <select
+            class="form-select"
+            name="urgency"
+          >
+            <option value="medium">Обычная</option>
+            <option value="low">Не срочно</option>
+            <option value="high">Срочно</option>
+            <option value="urgent">Очень срочно</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="width: 100%;"
+        >
+          <span class="loading hidden"></span>
+          <i class="fas fa-paper-plane"></i>
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Login Modal -->
+<div
+  id="loginModal"
+  class="modal"
+>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Вход в систему</h2>
+      <button
+        class="modal-close"
+        onclick="hideModal('loginModal')"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <form id="loginForm">
+      <div
+        id="loginAlert"
+        class="alert"
+      ></div>
+
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-input"
+          name="email"
+          required
+        >
+      </div>
+
+
+
+      <div class="form-group">
+        <label class="form-label">Пароль</label>
+        <input
+          type="password"
+          class="form-input"
+          name="password"
+          required
+        >
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="width: 100%;"
+      >
+        <span class="loading hidden"></span>
+        <i class="fas fa-user-plus"></i>
+        Зарегистрироваться
+      </button>
+    </form>
+    <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">
+      Уже есть аккаунт?
+      <a
+        href="#"
+        onclick="hideModal('registerModal'); showModal('loginModal')"
+        style="color: var(--primary);"
+      >Войти
+      </a>
+    </p>
+  </div>
+</div>
+
+<!-- Registration Modal -->
+<div
+  id="registerModal"
+  class="modal"
+>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Регистрация</h2>
+      <button
+        class="modal-close"
+        onclick="hideModal('registerModal')"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <form id="registerForm">
+      <div
+        id="registerAlert"
+        class="alert"
+      ></div>
+
+      <div class="form-group">
+        <label class="form-label">Имя</label>
+        <input
+          type="text"
+          class="form-input"
+          name="name"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Фамилия</label>
+        <input
+          type="text"
+          class="form-input"
+          name="surname"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-input"
+          name="email"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Телефон</label>
+        <input
+          type="tel"
+          class="form-input"
+          name="phone"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Пароль</label>
+        <input
+          type="password"
+          class="form-input"
+          name="password"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Подтвердите пароль</label>
+        <input
+          type="password"
+          class="form-input"
+          name="confirmPassword"
+          required
+        >
+      </div>
+
+      <div
+        class="form-group"
+        style="display: flex; align-items: flex-start; gap: 0.75rem;"
+      >
+        <input
+          type="checkbox"
+          id="terms"
+          name="terms"
+          required
+          style="margin-top: 0.25rem; accent-color: var(--primary);"
+        >
+        <label
+          for="terms"
+          style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.4; cursor: pointer;"
+        >
+          Я согласен с
+          <a
+            href="#"
+            style="color: var(--primary); text-decoration: none;"
+          >условиями использования
+          </a>
+          и
+          <a
+            href="#"
+            style="color: var(--primary); text-decoration: none;"
+          >политикой конфиденциальности
+          </a>
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="width: 100%;"
+      >
+        <span class="loading hidden"></span>
+        <i class="fas fa-user-plus"></i>
+        Зарегистрироваться
+      </button>
+    </form>
+    <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">
+      Уже есть аккаунт?
+      <a
+        href="#"
+        onclick="hideModal('registerModal'); showModal('loginModal')"
+        style="color: var(--primary);"
+      >Войти
+      </a>
+    </p>
+  </div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div
+  id="editProfileModal"
+  class="modal"
+>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Редактировать профиль</h2>
+      <button
+        class="modal-close"
+        onclick="hideModal('editProfileModal')"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <form id="editProfileForm">
+      <div
+        id="editProfileAlert"
+        class="alert"
+      ></div>
+
+      <div class="form-group">
+        <label class="form-label">Имя</label>
+        <input
+          type="text"
+          class="form-input"
+          name="name"
+          id="editName"
+        >
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Телефон</label>
+        <input
+          type="tel"
+          class="form-input"
+          name="phone"
+          id="editPhone"
+        >
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="width: 100%;"
+      >
+        <span class="loading hidden"></span>
+        <i class="fas fa-save"></i>
+        Сохранить изменения
+      </button>
+    </form>
+  </div>
+</div>
+
+<div
+  id="dashboardPage"
+  class="page"
+>
+
+  <div class="dashboard">
+    <div class="dashboard-header">
+      <h1>Панель управления</h1>
+      <div>
+        <span id="userWelcome">Добро пожаловать!</span>
+      </div>
+    </div>
+
+    <div
+      class="stats-grid"
+      id="adminStats"
+      style="display: none;"
+    >
+      <div class="stat-card">
+        <div
+          class="stat-value"
+          id="totalRequests"
+        >0
+        </div>
+        <div class="stat-label">Всего заявок</div>
+      </div>
+      <div class="stat-card">
+        <div
+          class="stat-value"
+          id="newRequests"
+        >0
+        </div>
+        <div class="stat-label">Новые заявки</div>
+      </div>
+      <div class="stat-card">
+        <div
+          class="stat-value"
+          id="inProgressRequests"
+        >0
+        </div>
+        <div class="stat-label">В работе</div>
+      </div>
+      <div class="stat-card">
+        <div
+          class="stat-value"
+          id="completedRequests"
+        >0
+        </div>
+        <div class="stat-label">Выполнено</div>
+      </div>
+    </div>
+
+    <div
+      class="table-container"
+      id="requestsTable"
+      style="display: none;"
+    >
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Клиент</th>
+            <th>Устройство</th>
+            <th>Проблема</th>
+            <th>Статус</th>
+            <th>Дата</th>
+            <th>Действия</th>
+          </tr>
+        </thead>
+        <tbody id="requestsTableBody">
+        </tbody>
+      </table>
+    </div>
+
+    <div id="userDashboard">
+      <div class="card">
+        <h2>Ваш профиль</h2>
+        <div id="userProfile">
+          <p><strong>Имя:</strong> <span id="userName"></span></p>
+          <p><strong>Email:</strong> <span id="userEmail"></span></p>
+          <p><strong>Телефон:</strong> <span id="userPhone"></span></p>
+        </div>
+        <button
+          class="btn btn-primary"
+          onclick="showModal('editProfileModal')"
+          style="margin-top: 1rem;"
+        >
+          <i class="fas fa-edit"></i>
+          Редактировать профиль
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <!-- Main Footer Content -->
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="logo">YourBrand</div>
+        <p class="footer-description">
+          Инновационная платформа для современного бизнеса. Мы помогаем компаниям достигать новых высот.
+        </p>
+        <div class="social-links">
+          <a
+            href="#"
+            class="social-link"
+          >
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a
+            href="#"
+            class="social-link"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a
+            href="#"
+            class="social-link"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="#"
+            class="social-link"
+          >
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a
+            href="#"
+            class="social-link"
+          >
+            <i class="fab fa-telegram-plane"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4 class="footer-title">Продукты</h4>
+          <ul class="footer-list">
+            <li>
+              <a href="#">Главная</a>
+            </li>
+            <li>
+              <a href="#">О нас</a>
+            </li>
+            <li>
+              <a href="#">Услуги</a>
+            </li>
+            <li>
+              <a href="#">Решения</a>
+            </li>
+            <li>
+              <a href="#">Цены</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Поддержка</h4>
+          <ul class="footer-list">
+            <li>
+              <a href="#">Центр помощи</a>
+            </li>
+            <li>
+              <a href="#">Документация</a>
+            </li>
+            <li>
+              <a href="#">API</a>
+            </li>
+            <li>
+              <a href="#">Статус системы</a>
+            </li>
+            <li>
+              <a href="#">Связаться с нами</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Компания</h4>
+          <ul class="footer-list">
+            <li>
+              <a href="#">О компании</a>
+            </li>
+            <li>
+              <a href="#">Карьера</a>
+            </li>
+            <li>
+              <a href="#">Новости</a>
+            </li>
+            <li>
+              <a href="#">Блог</a>
+            </li>
+            <li>
+              <a href="#">Инвесторы</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4 class="footer-title">Контакты</h4>
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>info@yourbrand.com</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>+998 (90) 123-45-67</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Ташкент, Узбекистан</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <div class="newsletter-content">
+        <h4>Подпишитесь на рассылку</h4>
+        <p>Получайте последние новости и обновления</p>
+      </div>
+      <form class="newsletter-form">
+        <input
+          type="email"
+          placeholder="Введите ваш email"
+          class="newsletter-input"
+          required
+        >
+        <button
+          type="submit"
+          class="btn btn-primary"
+        >
+          <i class="fas fa-paper-plane"></i>
+          Подписаться
+        </button>
+      </form>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <p>&copy; 2025 YourBrand. Все права защищены.</p>
+      </div>
+      <div class="footer-bottom-right">
+        <a href="#">Политика конфиденциальности</a>
+        <a href="#">Условия использования</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="./index.js"></script>
+</body>
+</html>
