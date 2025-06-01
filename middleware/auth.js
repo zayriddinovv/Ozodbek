@@ -1,6 +1,8 @@
 // middleware/auth.js
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const { validationResult } = require('express-validator');
+
 
 // Middleware для проверки токена
 const authenticate = async (req, res, next) => {
